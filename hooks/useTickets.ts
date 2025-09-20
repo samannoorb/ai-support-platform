@@ -50,8 +50,7 @@ export const useTickets = (
           *,
           customer:users!tickets_customer_id_fkey(*),
           agent:users!tickets_agent_id_fkey(*),
-          organization:organizations(*),
-          messages(count)
+          _count:messages(count)
         `, { count: 'exact' })
 
       // Apply role-based filtering

@@ -9,7 +9,8 @@ import {
   CheckCircle,
   Pause,
   XCircle,
-  MoreHorizontal
+  MoreHorizontal,
+  ArrowUpRight
 } from 'lucide-react'
 import { TicketWithRelations } from '@/types'
 import { Badge } from '@/components/ui/badge'
@@ -86,34 +87,35 @@ const TicketCard: React.FC<TicketCardProps> = ({
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'urgent':
-        return 'border-red-500'
+        return 'border-danger-500'
       case 'high':
-        return 'border-orange-500'
+        return 'border-warning-500'
       case 'medium':
-        return 'border-yellow-500'
+        return 'border-accent-500'
       case 'low':
-        return 'border-green-500'
+        return 'border-success-500'
       default:
-        return 'border-gray-300'
+        return 'border-slate-300'
     }
   }
 
   return (
-    <Card className={`group hover:shadow-md transition-all duration-200 border-l-4 ${getPriorityColor(ticket.priority)}`}>
+    <Card className={`group hover:shadow-elevated transition-all duration-200 border-l-4 ${getPriorityColor(ticket.priority)} card-hover`}>
       <CardContent className="p-6">
         <div className="flex items-start justify-between">
           <div className="flex-1 min-w-0">
             {/* Header */}
-            <div className="flex items-start justify-between mb-3">
+            <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
                 <Link 
                   href={`/tickets/${ticket.id}`}
-                  className="text-lg font-semibold text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  className="text-lg font-semibold text-slate-900 dark:text-slate-100 hover:text-primary-600 dark:hover:text-primary-400 transition-colors group-hover:text-primary-600 dark:group-hover:text-primary-400 flex items-center"
                 >
                   {truncateText(ticket.title, 60)}
+                  <ArrowUpRight className="h-4 w-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
-                <div className="flex items-center space-x-2 mt-1">
-                  <span className="text-sm text-gray-500 dark:text-gray-400 font-mono">
+                <div className="flex items-center space-x-2 mt-2">
+                  <span className="text-sm text-slate-500 dark:text-slate-400 font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md">
                     {ticket.ticket_id}
                   </span>
                   <Badge variant={getPriorityVariant(ticket.priority)} className="text-xs">
@@ -135,7 +137,7 @@ const TicketCard: React.FC<TicketCardProps> = ({
                     variant="ghost"
                     size="sm"
                     onClick={() => onAssign(ticket)}
-                    className="text-primary-600 hover:text-primary-700"
+                    className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
                   >
                     Assign
                   </Button>
@@ -145,7 +147,7 @@ const TicketCard: React.FC<TicketCardProps> = ({
                     variant="ghost"
                     size="icon"
                     onClick={() => onEdit(ticket)}
-                    className="h-8 w-8"
+                    className="h-8 w-8 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
                   >
                     <MoreHorizontal className="h-4 w-4" />
                   </Button>
@@ -154,20 +156,20 @@ const TicketCard: React.FC<TicketCardProps> = ({
             </div>
 
             {/* Description */}
-            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
+            <p className="text-slate-600 dark:text-slate-300 text-sm mb-4 line-clamp-2 leading-relaxed">
               {truncateText(ticket.description, 120)}
             </p>
 
-            {/* Category */}
+            {/* Category and Estimation */}
             <div className="flex items-center space-x-4 mb-4">
-              <div className="flex items-center space-x-1 text-sm text-gray-500 dark:text-gray-400">
+              <div className="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-400">
                 <span className="font-medium">Category:</span>
                 <Badge variant="secondary" className="text-xs">
                   {ticket.category}
                 </Badge>
               </div>
               {ticket.estimated_resolution && (
-                <div className="flex items-center space-x-1 text-sm text-gray-500 dark:text-gray-400">
+                <div className="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-400">
                   <Clock className="h-4 w-4" />
                   <span>Est: {ticket.estimated_resolution}</span>
                 </div>
@@ -180,10 +182,10 @@ const TicketCard: React.FC<TicketCardProps> = ({
                 {/* Customer Info */}
                 {showCustomer && ticket.customer && (
                   <div className="flex items-center space-x-2">
-                    <div className="h-6 w-6 bg-blue-500 rounded-full flex items-center justify-center text-xs text-white font-medium">
+                    <div className="h-7 w-7 bg-gradient-to-br from-primary-500 to-accent-500 rounded-full flex items-center justify-center text-xs text-white font-medium shadow-sm">
                       {getInitials(ticket.customer.full_name)}
                     </div>
-                    <span className="text-sm text-gray-600 dark:text-gray-300">
+                    <span className="text-sm text-slate-600 dark:text-slate-300 font-medium">
                       {ticket.customer.full_name}
                     </span>
                   </div>
@@ -192,11 +194,11 @@ const TicketCard: React.FC<TicketCardProps> = ({
                 {/* Agent Info */}
                 {showAgent && ticket.agent && (
                   <div className="flex items-center space-x-2">
-                    <User className="h-4 w-4 text-gray-400" />
-                    <div className="h-6 w-6 bg-green-500 rounded-full flex items-center justify-center text-xs text-white font-medium">
+                    <User className="h-4 w-4 text-slate-400" />
+                    <div className="h-7 w-7 bg-gradient-to-br from-success-500 to-success-600 rounded-full flex items-center justify-center text-xs text-white font-medium shadow-sm">
                       {getInitials(ticket.agent.full_name)}
                     </div>
-                    <span className="text-sm text-gray-600 dark:text-gray-300">
+                    <span className="text-sm text-slate-600 dark:text-slate-300 font-medium">
                       {ticket.agent.full_name}
                     </span>
                   </div>
@@ -204,8 +206,8 @@ const TicketCard: React.FC<TicketCardProps> = ({
 
                 {showAgent && !ticket.agent && (
                   <div className="flex items-center space-x-2">
-                    <User className="h-4 w-4 text-gray-400" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400 italic">
+                    <User className="h-4 w-4 text-slate-400" />
+                    <span className="text-sm text-slate-500 dark:text-slate-400 italic">
                       Unassigned
                     </span>
                   </div>
@@ -213,7 +215,7 @@ const TicketCard: React.FC<TicketCardProps> = ({
 
                 {/* Message Count */}
                 {ticket._count?.messages && (
-                  <div className="flex items-center space-x-1 text-sm text-gray-500 dark:text-gray-400">
+                  <div className="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-400">
                     <MessageSquare className="h-4 w-4" />
                     <span>{ticket._count.messages}</span>
                   </div>
@@ -221,7 +223,7 @@ const TicketCard: React.FC<TicketCardProps> = ({
               </div>
 
               {/* Timestamp */}
-              <div className="flex items-center space-x-1 text-sm text-gray-500 dark:text-gray-400">
+              <div className="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-400">
                 <Calendar className="h-4 w-4" />
                 <span>{formatRelativeTime(ticket.created_at)}</span>
               </div>
@@ -229,14 +231,14 @@ const TicketCard: React.FC<TicketCardProps> = ({
 
             {/* Tags */}
             {ticket.tags && ticket.tags.length > 0 && (
-              <div className="flex items-center space-x-2 mt-3">
+              <div className="flex items-center space-x-2 mt-4">
                 {ticket.tags.slice(0, 3).map((tag, index) => (
                   <Badge key={index} variant="outline" className="text-xs">
                     {tag}
                   </Badge>
                 ))}
                 {ticket.tags.length > 3 && (
-                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                  <span className="text-xs text-slate-500 dark:text-slate-400">
                     +{ticket.tags.length - 3} more
                   </span>
                 )}

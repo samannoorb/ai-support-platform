@@ -63,9 +63,9 @@ export const useDashboard = (): UseDashboardResult => {
         content,
         created_at,
         ticket_id,
-        tickets!inner(title),
-        sender:users!messages_sender_id_fkey(*)
+        tickets!inner(title)
       `)
+      .eq('sender_id', customerId)
       .order('created_at', { ascending: false })
       .limit(10)
 
@@ -104,9 +104,9 @@ export const useDashboard = (): UseDashboardResult => {
     const recentActivity = recentMessages?.map(msg => ({
       id: msg.id,
       type: 'message_sent' as const,
-      description: `New message in "${(msg.tickets as any)?.title}"`,
+      description: `New message in ticket`,
       timestamp: msg.created_at,
-      user: msg.sender,
+      user: { id: customerId, full_name: 'You', email: '', role: 'customer' as const },
     })) || []
 
     return {

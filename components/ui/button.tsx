@@ -3,31 +3,31 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-900 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
         default:
-          'bg-primary-600 text-white hover:bg-primary-700 dark:bg-primary-600 dark:hover:bg-primary-700',
+          'bg-primary-600 text-white shadow-sm hover:bg-primary-700 hover:shadow-md active:bg-primary-800 dark:bg-primary-600 dark:hover:bg-primary-700',
         destructive:
-          'bg-danger-600 text-white hover:bg-danger-700 dark:bg-danger-600 dark:hover:bg-danger-700',
+          'bg-danger-600 text-white shadow-sm hover:bg-danger-700 hover:shadow-md active:bg-danger-800 dark:bg-danger-600 dark:hover:bg-danger-700',
         outline:
-          'border border-gray-300 bg-white hover:bg-gray-50 hover:text-gray-900 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-100',
+          'border border-slate-300 bg-white text-slate-700 shadow-sm hover:bg-slate-50 hover:text-slate-900 hover:shadow-md dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-slate-100',
         secondary:
-          'bg-secondary-100 text-secondary-900 hover:bg-secondary-200 dark:bg-secondary-800 dark:text-secondary-100 dark:hover:bg-secondary-700',
+          'bg-slate-100 text-slate-900 shadow-sm hover:bg-slate-200 hover:shadow-md dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700',
         ghost:
-          'hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100',
+          'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100',
         link: 'text-primary-600 underline-offset-4 hover:underline dark:text-primary-400',
         success:
-          'bg-success-600 text-white hover:bg-success-700 dark:bg-success-600 dark:hover:bg-success-700',
+          'bg-success-600 text-white shadow-sm hover:bg-success-700 hover:shadow-md active:bg-success-800 dark:bg-success-600 dark:hover:bg-success-700',
         warning:
-          'bg-warning-600 text-white hover:bg-warning-700 dark:bg-warning-600 dark:hover:bg-warning-700',
+          'bg-warning-600 text-white shadow-sm hover:bg-warning-700 hover:shadow-md active:bg-warning-800 dark:bg-warning-600 dark:hover:bg-warning-700',
       },
       size: {
         default: 'h-10 px-4 py-2',
-        sm: 'h-9 rounded-md px-3',
-        lg: 'h-11 rounded-md px-8',
-        xl: 'h-12 rounded-lg px-10 text-base',
+        sm: 'h-8 rounded-md px-3 text-xs',
+        lg: 'h-12 rounded-lg px-8 text-base',
+        xl: 'h-14 rounded-xl px-10 text-lg',
         icon: 'h-10 w-10',
       },
     },
