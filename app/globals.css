@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+    @apply bg-secondary-50 text-secondary-900 dark:bg-secondary-900 dark:text-secondary-100;
   }
 
   html {
@@ -23,32 +23,32 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-800;
+    @apply bg-secondary-100 dark:bg-secondary-800;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+    @apply bg-secondary-300 dark:bg-secondary-600 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-400 dark:bg-gray-500;
+    @apply bg-secondary-400 dark:bg-secondary-500;
   }
 
   /* Firefox scrollbar */
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgb(156 163 175) rgb(243 244 246);
+    scrollbar-color: rgb(148 163 184) rgb(241 245 249);
   }
 
   .dark * {
-    scrollbar-color: rgb(75 85 99) rgb(31 41 55);
+    scrollbar-color: rgb(71 85 105) rgb(30 41 59);
   }
 }
 
 @layer components {
   /* Custom component styles */
   .glass {
-    @apply bg-white/80 backdrop-blur-sm border border-white/20 dark:bg-gray-900/80 dark:border-gray-800/20;
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 dark:bg-secondary-900/80 dark:border-secondary-800/20;
   }
 
   .card-shadow {
@@ -122,11 +122,11 @@
   }
 
   .message-bubble-agent {
-    @apply bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600;
+    @apply bg-white dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600;
   }
 
   .message-bubble-system {
-    @apply bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-center text-sm mx-auto;
+    @apply bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-400 text-center text-sm mx-auto;
   }
 
   /* Ticket priority indicators */
@@ -207,12 +207,12 @@
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     background-color: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(209, 213, 219, 0.3);
+    border: 1px solid rgba(203, 213, 225, 0.3);
   }
 
   .dark .glass-morphism {
-    background-color: rgba(17, 24, 39, 0.75);
-    border: 1px solid rgba(75, 85, 99, 0.3);
+    background-color: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(71, 85, 105, 0.3);
   }
 }
 

@@ -80,17 +80,17 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-secondary-900">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-gray-900 dark:to-gray-800" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-secondary-900 dark:to-secondary-800" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-secondary-900 dark:text-white mb-6">
               AI-Powered Customer
               <span className="gradient-text block">Support Platform</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-secondary-600 dark:text-secondary-300 mb-8 max-w-3xl mx-auto">
               Transform your customer support with intelligent ticket classification, real-time chat, 
               and AI-powered response suggestions. Built with Next.js, Supabase, and Google Gemini AI.
             </p>
@@ -112,7 +112,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+      <section className="py-16 bg-secondary-50 dark:bg-secondary-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -120,7 +120,7 @@ export default function HomePage() {
                 <div className="text-3xl lg:text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
                   {stat.value}
                 </div>
-                <div className="text-gray-600 dark:text-gray-400">
+                <div className="text-secondary-600 dark:text-secondary-400">
                   {stat.label}
                 </div>
               </div>
@@ -133,10 +133,10 @@ export default function HomePage() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white mb-4">
               Powerful Features for Modern Support
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-secondary-600 dark:text-secondary-300 max-w-2xl mx-auto">
               Everything you need to deliver exceptional customer support experiences
             </p>
           </div>
@@ -147,10 +147,10 @@ export default function HomePage() {
                   <div className="text-primary-600 dark:text-primary-400 mb-4">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-secondary-600 dark:text-secondary-300">
                     {feature.description}
                   </p>
                 </CardContent>
@@ -161,13 +161,13 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 bg-gray-50 dark:bg-gray-800">
+      <section className="py-24 bg-secondary-50 dark:bg-secondary-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white mb-4">
               Loved by Support Teams Worldwide
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-secondary-600 dark:text-secondary-300 max-w-2xl mx-auto">
               See what our customers say about their experience with SupportAI
             </p>
           </div>
@@ -180,14 +180,14 @@ export default function HomePage() {
                       <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <blockquote className="text-gray-700 dark:text-gray-300 mb-4">
+                  <blockquote className="text-secondary-700 dark:text-secondary-300 mb-4">
                     &ldquo;{testimonial.content}&rdquo;
                   </blockquote>
                   <div>
-                    <div className="font-semibold text-gray-900 dark:text-white">
+                    <div className="font-semibold text-secondary-900 dark:text-white">
                       {testimonial.name}
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">
+                    <div className="text-sm text-secondary-600 dark:text-secondary-400">
                       {testimonial.role}, {testimonial.company}
                     </div>
                   </div>
@@ -201,7 +201,7 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-gradient-to-r from-primary-600 to-purple-600 rounded-2xl p-12 text-white">
+          <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-12 text-white">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
               Ready to Transform Your Support?
             </h2>
@@ -224,7 +224,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-secondary-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
@@ -234,13 +234,13 @@ export default function HomePage() {
                 </div>
                 <span className="text-xl font-bold">SupportAI</span>
               </div>
-              <p className="text-gray-400">
+              <p className="text-secondary-400">
                 AI-powered customer support platform for modern businesses.
               </p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-gray-400">
+              <ul className="space-y-2 text-secondary-400">
                 <li><Link href="/features" className="hover:text-white">Features</Link></li>
                 <li><Link href="/pricing" className="hover:text-white">Pricing</Link></li>
                 <li><Link href="/integrations" className="hover:text-white">Integrations</Link></li>
@@ -249,7 +249,7 @@ export default function HomePage() {
             </div>
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400">
+              <ul className="space-y-2 text-secondary-400">
                 <li><Link href="/about" className="hover:text-white">About</Link></li>
                 <li><Link href="/careers" className="hover:text-white">Careers</Link></li>
                 <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
@@ -258,7 +258,7 @@ export default function HomePage() {
             </div>
             <div>
               <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-gray-400">
+              <ul className="space-y-2 text-secondary-400">
                 <li><Link href="/help" className="hover:text-white">Help Center</Link></li>
                 <li><Link href="/docs" className="hover:text-white">Documentation</Link></li>
                 <li><Link href="/status" className="hover:text-white">Status</Link></li>
@@ -266,14 +266,14 @@ export default function HomePage() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400">
+          <div className="border-t border-secondary-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-secondary-400">
               © 2024 SupportAI. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-gray-400 hover:text-white">Privacy</Link>
-              <Link href="/terms" className="text-gray-400 hover:text-white">Terms</Link>
-              <Link href="/cookies" className="text-gray-400 hover:text-white">Cookies</Link>
+              <Link href="/privacy" className="text-secondary-400 hover:text-white">Privacy</Link>
+              <Link href="/terms" className="text-secondary-400 hover:text-white">Terms</Link>
+              <Link href="/cookies" className="text-secondary-400 hover:text-white">Terms</Link>
             </div>
           </div>
         </div>

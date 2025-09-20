@@ -38,7 +38,10 @@ export const useTickets = (
   const [totalCount, setTotalCount] = useState(0)
 
   const fetchTickets = useCallback(async () => {
-    if (!user) return
+    if (!user) {
+      setLoading(false)
+      return
+    }
 
     setLoading(true)
     setError(null)
