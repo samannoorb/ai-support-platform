@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import { X, CheckCircle, XCircle, AlertCircle, Info } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -142,6 +144,10 @@ const ToastContext = React.createContext<ToastContextType | undefined>(undefined
 export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [toasts, setToasts] = React.useState<Toast[]>([])
 
+  const removeToast = React.useCallback((id: string) => {
+    setToasts((prev) => prev.filter((toast) => toast.id !== id))
+  }, [])
+
   const addToast = React.useCallback((toast: Omit<Toast, 'id'>) => {
     const id = Math.random().toString(36).substring(2, 9)
     const newToast = { ...toast, id }
@@ -155,11 +161,7 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         removeToast(id)
       }, duration)
     }
-  }, [])
-
-  const removeToast = React.useCallback((id: string) => {
-    setToasts((prev) => prev.filter((toast) => toast.id !== id))
-  }, [])
+  }, [removeToast])
 
   const success = React.useCallback((title: string, description?: string) => {
     addToast({ title, description, type: 'success' })

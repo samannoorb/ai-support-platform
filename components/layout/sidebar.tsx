@@ -272,7 +272,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 <span className="text-sm font-medium">Pro Tip</span>
               </div>
               <p className="text-xs text-white/90">
-                Use keyboard shortcuts to navigate faster. Press '?' to see all shortcuts.
+                Use keyboard shortcuts to navigate faster. Press &lsquo;?&rsquo; to see all shortcuts.
               </p>
             </div>
           </div>

@@ -96,7 +96,7 @@ const TicketList: React.FC<TicketListProps> = ({
     { value: 'title', label: 'Title' },
   ]
 
-  const handleFiltersChange = () => {
+  const handleFiltersChange = React.useCallback(() => {
     if (!onFiltersChange) return
 
     const filters: TicketFilters = {}
@@ -107,24 +107,24 @@ const TicketList: React.FC<TicketListProps> = ({
     if (categoryFilter) filters.category = [categoryFilter]
 
     onFiltersChange(filters)
-  }
+  }, [onFiltersChange, searchQuery, statusFilter, priorityFilter, categoryFilter])
 
-  const handleSortChange = () => {
+  const handleSortChange = React.useCallback(() => {
     if (!onSortChange) return
     
     onSortChange({
       field: sortField,
       direction: sortDirection,
     })
-  }
+  }, [onSortChange, sortField, sortDirection])
 
   React.useEffect(() => {
     handleFiltersChange()
-  }, [searchQuery, statusFilter, priorityFilter, categoryFilter])
+  }, [handleFiltersChange])
 
   React.useEffect(() => {
     handleSortChange()
-  }, [sortField, sortDirection])
+  }, [handleSortChange])
 
   const clearFilters = () => {
     setSearchQuery('')

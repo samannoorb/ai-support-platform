@@ -24,15 +24,25 @@ export type AttachmentUpdate = Database['public']['Tables']['attachments']['Upda
 // Extended types with relationships
 export interface TicketWithRelations extends Ticket {
   customer: User
-  agent?: User
-  organization?: Organization
-  messages?: MessageWithSender[]
+  agent?: User | null
+  organization?: Organization | null
+  messages?: MessageWithSender[] | { count: number }[]
   _count?: {
     messages: number
   }
 }
 
-export interface MessageWithSender extends Message {
+export interface MessageWithSender {
+  id: string
+  ticket_id: string
+  sender_id: string
+  content: string
+  message_type: 'message' | 'note' | 'system'
+  created_at: string
+  updated_at: string
+  is_ai_generated: boolean
+  sentiment_score: number | null
+  metadata: any
   sender: User
   attachments?: Attachment[]
 }

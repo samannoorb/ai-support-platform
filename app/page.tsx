@@ -181,7 +181,7 @@ export default function HomePage() {
                     ))}
                   </div>
                   <blockquote className="text-gray-700 dark:text-gray-300 mb-4">
-                    "{testimonial.content}"
+                    &ldquo;{testimonial.content}&rdquo;
                   </blockquote>
                   <div>
                     <div className="font-semibold text-gray-900 dark:text-white">
